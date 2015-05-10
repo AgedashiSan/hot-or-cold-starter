@@ -3,15 +3,15 @@ $(document).ready(function(){
 
 	var keyWord = Math.floor(Math.random()*100 + 1);
 	var i = 0;
-	
-	$(".guessButton").click(function(){
+	var delta = new Array();
+
+	$("#guessButton").click(function(){
 		i = i++;
 		var guessWord = document.getElementById("userGuess").value;
 		document.getElementById("count").innerHTML = i;
-		var delta = new Array();
 		delta[i] = Math.abs(guessWord - keyWord);
-		$("@guessList").append("<li>" + guessWord + "</li>");
-		if (delta[i]==0) {
+		$("#guessList").append("<li>" + guessWord + "</li>");
+		if (delta[i] == 0) {
 			document.getElementById("feedback").innerHTML = "Yeah you got it!!";
 		}
 		else if (i == 1) {
@@ -35,14 +35,14 @@ $(document).ready(function(){
 			if (delta[i] > delta[i-1]) {
 				document.getElementById("feedback").innerHTML = "It's colder!";
 			}
-			else if (elta[i] < delta[i-1]) {
+			else if (delta[i] < delta[i-1]) {
 				document.getElementById("feedback").innerHTML = "It's hotter!";
 			}
 			else {
 				document.getElementById("feedback").innerHTML = "Hmm it's about the same...";
 			}
 		}
-	};
+	});
 	
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
