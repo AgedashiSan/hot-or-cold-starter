@@ -38,10 +38,11 @@ $(document).ready(function(){
 			else if (delta[i] < delta[i-1]) {
 				document.getElementById("feedback").innerHTML = "It's hotter!";
 			}
-			else {
+			else if (delta[i] == delta[i-1]) {
 				document.getElementById("feedback").innerHTML = "Hmm it's about the same...";
 			}
 		}
+		return false;
 	});
 	
 	/*--- Display information modal box ---*/
